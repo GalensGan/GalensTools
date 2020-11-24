@@ -1,0 +1,28 @@
+﻿<ContentControl x:Class="PaymentSystem.Pages.PayTask_NewView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PaymentSystem.Pages"
+      xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+      xmlns:s="https://github.com/canton7/Stylet"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1200">
+
+    <Grid>
+        <TabControl     VerticalAlignment="Stretch"
+                        Margin="10,0" ItemsSource="{Binding Items}"
+                        pu:TabControlHelper.ItemHeight="50"
+                        pu:TabControlHelper.ItemPadding="20,0"
+                        pu:TabControlHelper.SelectedForeground="#C62F2F"
+                        pu:TabControlHelper.ItemsAlignment="Center"
+                        SelectedItem="{Binding ActiveItem}" DisplayMemberPath="DisplayName">
+            <TabControl.ContentTemplate>
+                <!-- this is the body of the TabItem template-->
+                <DataTemplate>
+                    <ContentControl s:View.Model="{Binding}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" IsTabStop="False"/>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </Grid>
+</ContentControl>

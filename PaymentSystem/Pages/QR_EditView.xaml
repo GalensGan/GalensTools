@@ -1,0 +1,51 @@
+﻿<Window x:Class="PaymentSystem.Pages.QR_EditView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PaymentSystem.Pages"
+      xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+      xmlns:s="https://github.com/canton7/Stylet"
+      mc:Ignorable="d"
+      WindowStyle="None"
+      FontFamily="{StaticResource FontAwesome}"
+      WindowStartupLocation="CenterScreen"      
+      Background="Transparent"  
+      AllowsTransparency="True"
+      Height="200" Width="400">
+
+    <Grid>
+        <GroupBox pu:GroupBoxHelper.ShadowColor="LightGray" pu:GroupBoxHelper.CornerRadius="4" Margin="0" Height="200"
+                 Header="{Binding Header}" VerticalAlignment="Center">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">名称</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">金额</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center">图片链接</TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center">标签</TextBlock>
+
+
+                <TextBox Grid.Row="0" Grid.Column="1" Height="28" pu:TextBoxHelper.CornerRadius="3" DataContext="{Binding QRCode}" Text="{Binding name,Mode=TwoWay}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Height="28" pu:TextBoxHelper.CornerRadius="3" DataContext="{Binding QRCode}" Text="{Binding amount,Mode=TwoWay}"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Height="28" pu:TextBoxHelper.CornerRadius="3" DataContext="{Binding QRCode}" Text="{Binding url,Mode=TwoWay}"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Height="28" pu:TextBoxHelper.CornerRadius="3" DataContext="{Binding QRCode}" Text="{Binding tag,Mode=TwoWay}"/>
+                
+                
+                <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+                    <Button Margin="5" Width="50" Command="{s:Action Save}">保存</Button>
+                    <Button Margin="5" Width="50" Command="{s:Action Cancle}">取消</Button>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
